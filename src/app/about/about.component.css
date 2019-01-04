@@ -1,0 +1,8 @@
+/* #007bff */
+.row .col-sm-9 {
+	background-color: aliceblue;
+}
+
+.row .col-sm-3 {
+	background-color: hsl(211, 30%, 70%);
+}

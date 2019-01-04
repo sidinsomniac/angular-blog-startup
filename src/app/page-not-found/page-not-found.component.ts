@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="error-template">
+            <div class="error-template text-secondary">
                 <h1>
                     Oops!</h1>
                 <h2>
