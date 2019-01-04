@@ -11,12 +11,16 @@ export class HomeComponent implements OnInit {
   heading:string = 'Angular Blog App';
 
   public allBlogs;
+  public errorMessage;
 
   constructor(private blogs:BlogsService) { }
 
   ngOnInit() {
     this.blogs.getBlogs()
-      .subscribe(data => this.allBlogs = data);
+      .subscribe(
+        data => this.allBlogs = data,
+        error => this.errorMessage = error
+        );
   }
 
 }

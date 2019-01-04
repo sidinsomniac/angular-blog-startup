@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { IBlog } from './blog';
 
 @Injectable({
@@ -8,12 +9,18 @@ import { IBlog } from './blog';
 })
 export class BlogsService {
 
-  private _url = "https://api.myjson.com/bins/79h04";
+  private _url = "https://api.myjson.com/bins/178xnk";
 
   constructor(private http: HttpClient) { }
 
   getBlogs(): Observable<IBlog[]> {
-    return this.http.get<IBlog[]>(this._url);
+    return this.http.get<IBlog[]>(this._url).pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
+  errorHandler(error:  HttpErrorResponse) {
+    return throwError(error.message || "Server error");
   }
 }
 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="jumbotron">
-    <h1 class="display-4">{{heading}}</h1>
+    <h1 class="display-4 text-primary">{{heading}}</h1>
     <p class="lead">A generic blog app which really does nothing. Simple.</p>
     <hr class="my-4">
     <p>As claimed above, this is nothing.</p>
@@ -10,6 +10,7 @@
   </div>
   <div class="card-deck">
     <div class="card" *ngFor='let blog of allBlogs'>
+      <img class="card-img-top" src="{{blog.imgUrl}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted font-italic">Posted by <span [style.color]='blog.author' class="font-weight-bold">{{blog.author}}</span></h6>
@@ -20,4 +21,5 @@
       </div>
     </div>
   </div>
+  <h3 class="text-danger text-center" *ngIf="errorMessage">Sorry, there is an {{errorMessage}}</h3>
 </div>
