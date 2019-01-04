@@ -1,11 +1,24 @@
 <div class="container">
   <div class="jumbotron">
     <h1 class="display-4">{{heading}}</h1>
-    <p class="lead">This is a simple blog app which really does nothing. Simple.</p>
+    <p class="lead">This is a generic blog app which really does nothing. Simple.</p>
     <hr class="my-4">
     <p>As claimed above, this is nothing.</p>
     <p class="lead">
       <a class="btn btn-primary btn-lg" routerLink="/home" role="button">Learn more</a>
     </p>
+  </div>
+  <div class="card-deck">
+    <div class="card" *ngFor='let blog of allBlogs'>
+      <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted font-weight-light">Posted by <span [style.color]='blog.author' class="font-weight-bold">{{blog.author}}</span></h6>
+        <small class="text-primary">Views: {{blog.views}}</small>
+        <p class="card-text">{{blog.description | slice:0:80}}...</p>
+        <small class="blockquote-footer mb-3 font-italic" *ngIf="blog.lastModified">Last modified: {{blog.lastModified}}</small>
+        <div class="badge badge-pill badge-secondary mb-3 mr-1" *ngFor='let tag of blog.tags'>#{{tag}}</div>
+        <a routerLink="/qwerrt" class="btn btn-outline-primary btn-sm">View Post</a>
+      </div>
+    </div>
   </div>
 </div>

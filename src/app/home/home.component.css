@@ -1,3 +1,7 @@
 .jumbotron {
 	background-color: aliceblue;
 }
+
+.card-subtitle span{
+	opacity: 0.6;
+}
