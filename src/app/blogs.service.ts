@@ -12,7 +12,7 @@ export class BlogsService {
       {
         "id": 1,
         "url": "sands",
-        "created": "Thu Jan 03 2019",
+        "created": "Thu Jan 03 2019 03:40:00 AM GMT+5:30",
         "lastModified":"1 day ago",
         "tags":["gadget","tech"],
         "author":"red",
@@ -24,7 +24,7 @@ export class BlogsService {
       {
         "id": 2,
         "url": "dormammu",
-        "created": "Fri Jan 04 2019",
+        "created": "Fri Jan 04 2019 02:05:00 AM GMT+5:30",
         "tags":["showerthought","history","foodforthought"],
         "author":"blue",
         "category":"Informative",
@@ -35,7 +35,7 @@ export class BlogsService {
       {
         "id": 3,
         "url": "extraordinary",
-        "created": "Sat Jan 05 2019",
+        "created": "Sat Jan 05 2019 08:35:00 PM GMT+5:30",
         "lastModified":"Today",
         "tags":["lol","lmao","rofl"],
         "author":"green",

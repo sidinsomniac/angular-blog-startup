@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogsService } from '../blogs.service';
 
 @Component({
   selector: 'app-blogpost',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogpostComponent implements OnInit {
 
-  constructor() { }
+  public blogUrl:string;
+  public checkerArray:string[]=[];
+  public allBlogs;
+
+  checkIfInvalid():boolean {
+    this.allBlogs.forEach(element => {
+      this.checkerArray.push(element.url);
+    });
+    return (this.checkerArray.indexOf(this.blogUrl) === -1) ? true : false;
+  }
+
+  constructor(private route: ActivatedRoute, private blogs:BlogsService) { }
 
   ngOnInit() {
+    let url = this.route.snapshot.paramMap.get('blogpost');
+    this.blogUrl = url;
+    this.allBlogs = this.blogs.getBlogs();    
+    this.checkIfInvalid();
   }
 
 }

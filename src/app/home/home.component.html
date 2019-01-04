@@ -12,11 +12,10 @@
     <div class="card" *ngFor='let blog of allBlogs'>
       <div class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted font-weight-light">Posted by <span [style.color]='blog.author' class="font-weight-bold">{{blog.author}}</span></h6>
-        <small class="text-primary">Views: {{blog.views}}</small>
-        <p class="card-text">{{blog.description | slice:0:80}}...</p>
-        <small class="blockquote-footer mb-3 font-italic" *ngIf="blog.lastModified">Last modified: {{blog.lastModified}}</small>
-        <div class="badge badge-pill badge-secondary mb-3 mr-1" *ngFor='let tag of blog.tags'>#{{tag}}</div>
+        <h6 class="card-subtitle mb-2 text-muted font-italic">Posted by <span [style.color]='blog.author' class="font-weight-bold">{{blog.author}}</span></h6>
+        <small class="blockquote-footer mb-3 font-italic text-primary">Created: {{blog.created | date }}</small>
+        <small class="card-text">{{blog.description | slice:0:60}}...</small>
+        <h6 class="text-muted font-weight-light mt-3">Category: {{blog.category}}</h6>
         <a [routerLink]="blog.url" class="btn btn-outline-primary btn-sm">View Post</a>
       </div>
     </div>

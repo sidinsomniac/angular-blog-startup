@@ -1,3 +1,19 @@
-<p>
-  blogpost works!
-</p>
+<div class="container">
+  <ng-container *ngFor='let blog of allBlogs'>
+    <div class="card mt-5" *ngIf='blog.url === blogUrl'>
+      <div class="card-body">
+        <h3 class="card-title">{{blog.title}} <small> ( Category: {{blog.category}} )</small></h3>
+        <h6 class="card-subtitle mb-2 text-muted font-weight-light">Posted by <span [style.color]='blog.author' class="font-weight-bold">{{blog.author}}</span></h6>
+        <small class="blockquote-footer mb-3 font-italic">Created: {{blog.created | date:'medium'}}</small>
+        <div class="badge badge-pill badge-secondary mb-3 mr-1" *ngFor='let tag of blog.tags'>#{{tag}}</div>
+        <h6 class="card-text">{{blog.description}}</h6>
+        <small class="blockquote-footer mb-3 font-italic" *ngIf="blog.lastModified">Last modified: {{blog.lastModified}}</small>
+        <small class="text-primary">Views: {{blog.views}}</small>
+      </div>
+    </div>
+  </ng-container>
+  <a routerLink="/home" class="btn btn-primary btn-sm mt-5" *ngIf='!checkIfInvalid()'>Back</a>
+  <ng-container *ngIf='checkIfInvalid()'>
+    <app-about></app-about>
+  </ng-container>
+</div>
