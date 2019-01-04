@@ -23,9 +23,10 @@ export class BlogpostComponent implements OnInit {
   constructor(private route: ActivatedRoute, private blogs:BlogsService) { }
 
   ngOnInit() {
+    this.blogs.getBlogs()
+      .subscribe(data => this.allBlogs = data);
     let url = this.route.snapshot.paramMap.get('blogpost');
     this.blogUrl = url;
-    this.allBlogs = this.blogs.getBlogs();    
     this.checkIfInvalid();
   }
 

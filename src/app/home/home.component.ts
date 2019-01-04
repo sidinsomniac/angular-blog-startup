@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(private blogs:BlogsService) { }
 
   ngOnInit() {
-    this.allBlogs = this.blogs.getBlogs();
+    this.blogs.getBlogs()
+      .subscribe(data => this.allBlogs = data);
   }
 
 }
